@@ -47,7 +47,7 @@ Modify your compile of Nginx by adding the following directive
       server 127.0.0.1:9002;
     }
 
-	  sticky [name=route] [domain=.foo.bar] [path=/] [expires=1h] 
+	  sticky [name=route] [domain=.foo.bar] [path=/] [sameSite] [expires=1h] 
            [hash=index|md5|sha1] [no_fallback] [secure] [httponly];
   
   
@@ -59,7 +59,9 @@ Modify your compile of Nginx by adding the following directive
 
 - path:    the path in which the cookie will be valid
   default: /
-
+- sameSite: value for sameSite option for this cookie
+  default: none
+  
 - expires: the validity duration of the cookie
   default: nothing. It's a session cookie.
   restriction: must be a duration greater than one second
