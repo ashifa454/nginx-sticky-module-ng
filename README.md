@@ -47,7 +47,7 @@ Modify your compile of Nginx by adding the following directive
       server 127.0.0.1:9002;
     }
 
-	  sticky [name=route] [domain=.foo.bar] [path=/] [sameSite] [expires=1h] 
+	  sticky [name=route] [domain=.foo.bar] [path=/] [sameSite=none] [expires=1h] 
            [hash=index|md5|sha1] [no_fallback] [secure] [httponly];
   
   
