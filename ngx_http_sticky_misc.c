@@ -77,7 +77,7 @@ ngx_int_t ngx_http_sticky_misc_set_cookie(ngx_http_request_t *r, ngx_str_t *name
 
   /* ; sameSite= */
   if (sameSite->len > 0) {
-    len += sizeof("; sameSite=") - 1 + path->len;
+    len += sizeof("; sameSite=") - 1 + sameSite->len;
   }
   /* ; Secure */
   if (secure) {
