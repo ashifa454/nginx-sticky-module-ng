@@ -205,7 +205,7 @@ static ngx_int_t ngx_http_init_sticky_peer(ngx_http_request_t *r, ngx_http_upstr
 	iphp->request = r;
 
 	/* check weather a cookie is present or not and save it */
-	if (ngx_http_parse_multi_header_lines(&r->headers_in.cookies, &iphp->sticky_conf->cookie_name, &route) != NGX_DECLINED) {
+	if (ngx_http_parse_multi_header_lines(r, r->headers_in.cookie, &iphp->sticky_conf->cookie_name, &route) != NULL) {
 		/* a route cookie has been found. Let's give it a try */
 		ngx_log_debug(NGX_LOG_DEBUG_HTTP, r->connection->log, 0, "[sticky/init_sticky_peer] got cookie route=%V, let's try to find a matching peer", &route);
 
